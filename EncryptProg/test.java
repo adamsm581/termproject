@@ -2,6 +2,13 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Base64;
 
+/*
+  Borrowed from chandpriyankara/BullyWiiPlaza's AES implementation
+  Added timer for data gathering purposes
+  Encryption key is static, nonrandom due to security not being a concern.
+  Key generation time is a known quantity
+*/
+
 public class test
 {
   public static void main(String[] arguments) throws Exception
