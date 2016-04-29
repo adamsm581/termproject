@@ -2,6 +2,7 @@ package group.termproject;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import javax.crypto.Cipher;
@@ -30,19 +31,36 @@ public class EncryptActivity extends AppCompatActivity {
         AdvancedEncryptionStandard my_aes = new AdvancedEncryptionStandard(encryptionKey);
         long starttime1, starttime2, endtime1, endtime2, duration1, duration2, durationtotal;
         starttime1 = System.nanoTime();
-        String cipherText = my_aes.encrypt(plainText);
+        String cipherText = "";
+        try {
+            cipherText = my_aes.encrypt(plainText);
+        }
+        catch(Exception e)
+        {
+            Log.d("ERROR", e.getMessage());
+        }
         endtime1 = System.nanoTime();
         duration1 = (endtime1 - starttime1);
         starttime2 = System.nanoTime();
-        String decryptedCipherText = my_aes.decrypt(cipherText);
+        String decryptedCipherText = "";
+        try{
+            decryptedCipherText = my_aes.decrypt(cipherText);
+        }
+        catch(Exception e)
+        {
+            Log.d("ERROR", e.getMessage());
+        }
         endtime2 = System.nanoTime();
         duration2 = (endtime2 - starttime2);
         durationtotal = duration1 + duration2;
         TextView t1 = (TextView) findViewById(R.id.textView3);
-        t1.setText("Original text: " + plainText);
+        String outstr1 = "Original text: " + plainText;
+        t1.setText(outstr1);
         TextView t2 = (TextView) findViewById(R.id.textView4);
-        t2.setText("Cipher text: " + cipherText);
+        String outstr2 = "Cipher text: " + cipherText;
+        t2.setText(outstr2);
         TextView t3 = (TextView) findViewById(R.id.textView5);
-        t3.setText("Total time taken: " + durationtotal + " nano seconds.");
+        String outstr3 = "Total time taken: " + durationtotal;
+        t3.setText(outstr3);
     }
 }
