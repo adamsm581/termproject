@@ -60,7 +60,7 @@ public class EncryptActivity extends AppCompatActivity {
         String outstr2 = "Cipher text: " + cipherText;
         t2.setText(outstr2);
         TextView t3 = (TextView) findViewById(R.id.textView5);
-        String outstr3 = "Total time taken: " + durationtotal;
+        String outstr3 = "Total time taken: " + durationtotal + " nanoseconds";
         t3.setText(outstr3);
     }
 }
