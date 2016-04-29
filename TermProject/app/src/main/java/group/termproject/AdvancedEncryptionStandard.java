@@ -22,14 +22,13 @@ public class AdvancedEncryptionStandard
     {
         Cipher cipher = getCipher(Cipher.ENCRYPT_MODE);
         byte[] encryptedBytes = cipher.doFinal(plainText.getBytes());
-        String ct = new String(encryptedBytes);
-        return Base64.encodeToString(ct.getBytes(), Base64.NO_WRAP);
+        return Base64.encodeToString(encryptedBytes, Base64.NO_WRAP);
     }
 
     public String decrypt(String encrypted) throws Exception
     {
         Cipher cipher = getCipher(Cipher.DECRYPT_MODE);
-        byte[] plainBytes = cipher.doFinal(Base64.decode(encrypted, Base64.NO_WRAP));
+        byte[] plainBytes = cipher.doFinal(Base64.decode(encrypted, Base64.DEFAULT));
         return new String(plainBytes);
     }
 

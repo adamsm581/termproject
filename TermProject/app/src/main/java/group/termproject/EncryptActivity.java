@@ -62,5 +62,8 @@ public class EncryptActivity extends AppCompatActivity {
         TextView t3 = (TextView) findViewById(R.id.textView5);
         String outstr3 = "Total time taken: " + durationtotal + " nanoseconds";
         t3.setText(outstr3);
+        TextView t4 = (TextView) findViewById(R.id.textView6);
+        String outstr4 = "Decrypted Text: " + decryptedCipherText;
+        t4.setText(outstr4);
     }
 }
